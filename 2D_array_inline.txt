@@ -1,0 +1,24 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+//2-мерный массив в одну строчку
+
+int main()
+{
+	srand(time(0));
+	int const size = 6;
+	int arr[size][size];
+	int arrSum[size] = {0};
+
+for (int i = 0; i < n*n; i++)
+{
+	if (i % 10 == 0) cout << endl;
+	arr[0][i] = rand() % 50;
+	cout << arr[0][i] << " ";
+}
+
+	system("pause");
+	return 0;
+}
+
