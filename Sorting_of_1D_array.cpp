@@ -2,7 +2,7 @@
 #include <time.h>
 using namespace std;
 
-//Сортировка массива
+//Filling array by randoms and sort ascending by Choices_sort method
 
 void rand_fill_array(int *arr, int size)
 {
