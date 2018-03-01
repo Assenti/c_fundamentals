@@ -9,10 +9,7 @@ void change_substr(string str, string str1, string str2) {
 			j++;
 		}
 	}
-	for (int i = 0; i < str.length(); i++) {
-		cout << str[i];
-	}
-	cout << endl;
+	cout << str << endl;
 }
 
 
