@@ -25,7 +25,7 @@ struct Bank
 
 struct Client_account
 {
-	int account_id; //from 100 - credit, from 200 - deposit
+	int account_id; 
 	string account_currency; //KZT, USD, EUR
 	double account_balance;
 };
