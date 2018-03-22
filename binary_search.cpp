@@ -43,7 +43,7 @@ int binary_search(int sorted_arr[], int left_side, int right_side, int value)
 	}
 }
 
-void main()
+int main()
 {
 	int const size = 50;
 	int arr[size];
@@ -56,4 +56,5 @@ void main()
 	cout << binary_search(arr,0,size-1,10) << endl;
 
 	system("pause");
+	return 0;
 }
