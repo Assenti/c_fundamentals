@@ -21,7 +21,7 @@ void is_symetric_matrix(int ** matrix, int size) {
 }
 
 
-void main() {
+int main() {
 	int **matrix = new int *[3];
 
 	for (int i = 0; i < 3; i++) {
@@ -39,4 +39,5 @@ void main() {
 
 	
 	system("pause");
+	return 0;
 }
