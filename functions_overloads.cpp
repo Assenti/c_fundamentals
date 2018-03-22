@@ -41,7 +41,7 @@ double average(double arr[], int size)
 	return sum / size;
 }
 
-void main()
+int main()
 {
 	srand(time(0)); rand();
 	int const size = 10;
@@ -53,4 +53,5 @@ void main()
 	cout << average(arr, size) << endl;
 
 	system("pause");
+	return 0;
 }
