@@ -2,7 +2,7 @@
 #define _CRT_SECURE_NO_DEPRECATE
 
 #include<iostream>
-#include<stdio.h>
+#include<stdio.h>   
 #include<cstdlib>
 #include<string>
 
@@ -64,6 +64,8 @@ char * get_id_by_language(string language_name);
 char * get_id_by_name(string interpreter_name);
 
 bool main_menu();
+
+void display_interpreters_n_languages();
 #pragma endregion
 
 int main() {
@@ -73,10 +75,7 @@ int main() {
 	{
 		check = main_menu();
 	}
-	
-	
 
-	
 	system("pause");
 	return 0;
 }
@@ -148,7 +147,7 @@ void add_language_diaglogue_window() {
 
 void add_interpreterlanguage_diaglogue_window() {
 	InterpreterLanguage * record = new InterpreterLanguage;
-
+	display_interpreters_n_languages();
 	cout << "Please enter an interpreter ID:...[10 symbols]:" << endl;
 	cin >> record->InterpreterId;
 	cout << "Please enter a language ID:...[10 symbols]:" << endl;
@@ -161,7 +160,7 @@ void add_interpreterlanguage_diaglogue_window() {
 
 void show_all_languages_of_interpreter_diaglogue_window() {
 	prepare_program();
-	
+
 	cout << "Enter the interpreters name: ";
 	string interpreter_name;
 	cin >> interpreter_name;
@@ -171,7 +170,7 @@ void show_all_languages_of_interpreter_diaglogue_window() {
 		string second = get_id_by_name(interpreter_name);
 
 		if (first == second) {
-			cout << "LANGUAGE: " << interpretersLanguages->LanguageId << 
+			cout << "LANGUAGE: " << interpretersLanguages->LanguageId <<
 				" | LEVEL: " << interpretersLanguages->LevelOfKnowledge << endl;
 		}
 		interpretersLanguages++;
@@ -180,7 +179,7 @@ void show_all_languages_of_interpreter_diaglogue_window() {
 
 void show_info_about_language_interpreters_diaglogue_window() {
 	prepare_program();
-	
+
 	cout << "Enter the language name [English, Russian, Kazakh]: ";
 	string language_name;
 	cin >> language_name;
@@ -191,7 +190,7 @@ void show_info_about_language_interpreters_diaglogue_window() {
 		string interpreters_name = get_name_by_id(interpretersLanguages->InterpreterId);
 
 		if (first == second) {
-			cout << "NAME: "<< interpreters_name << " | LEVEL: " << interpretersLanguages->LevelOfKnowledge << endl;
+			cout << "NAME: " << interpreters_name << " | LEVEL: " << interpretersLanguages->LevelOfKnowledge << endl;
 		}
 		interpretersLanguages++;
 	}
@@ -207,7 +206,7 @@ void prepare_program() {
 char * get_name_by_id(string interpreter_id)
 {
 	interpreters = deserialize_data<Interpreter>(storage_table_interpreters, interpreters_count);
-	
+
 	for (int i = 0; i < interpreters_count; i++)
 	{
 		string first = interpreters->Id;
@@ -223,7 +222,7 @@ char * get_name_by_id(string interpreter_id)
 char * get_id_by_language(string language_name)
 {
 	languages = deserialize_data<Language>(storage_table_languages, languages_count);
-	
+
 	for (int i = 0; i < languages_count; i++)
 	{
 		string first = languages->Name;
@@ -251,6 +250,23 @@ char * get_id_by_name(string interpreter_name)
 		interpreters++;
 	}
 }
+
+void display_interpreters_n_languages()
+{
+	interpreters = deserialize_data<Interpreter>(storage_table_interpreters, interpreters_count);
+	languages = deserialize_data<Language>(storage_table_languages, languages_count);
+	for (int i = 0; i < interpreters_count; i++)
+	{
+		cout << "ID: " << interpreters->Id << " | NAME: " << interpreters->Name << endl;
+		interpreters++;
+	}
+	for (int i = 0; i < languages_count; i++)
+	{
+		cout << "ID: " << languages->Id << " | NAME: " << languages->Name << endl;
+		languages++;
+	}
+}
+
 
 bool main_menu()
 {
