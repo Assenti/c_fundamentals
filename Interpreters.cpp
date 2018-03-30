@@ -265,6 +265,8 @@ void display_interpreters_n_languages()
 		cout << "ID: " << languages->Id << " | NAME: " << languages->Name << endl;
 		languages++;
 	}
+	interpreters_count = 0;
+	languages_count = 0;
 }
 
 
